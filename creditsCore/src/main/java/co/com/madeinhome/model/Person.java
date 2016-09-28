@@ -44,186 +44,186 @@ public class Person implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "CDPERSON")
-    private Integer cdperson;
+    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "CDPERSON_TYPE")
-    private int cdpersonType;
+    private int personType;
     @Basic(optional = false)
     @NotNull
     @Column(name = "CDDOCUMENT_TYPE")
-    private int cddocumentType;
+    private int documentType;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "CDDOCUMENT")
-    private String cddocument;
+    private String document;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "DSNAMES")
-    private String dsnames;
+    private String names;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 100)
     @Column(name = "DSLAST_NAMES")
-    private String dslastNames;
+    private String lastNames;
     @Size(max = 200)
     @Column(name = "DSBUSINESS_NAME")
-    private String dsbusinessName;
+    private String businessName;
     @Size(max = 20)
     @Column(name = "DSTELEPHONE")
-    private String dstelephone;
+    private String telephone;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
     @Column(name = "DSCELL_PHONE")
-    private String dscellPhone;
+    private String cellPhone;
     @Size(max = 200)
     @Column(name = "DSADDRESS")
-    private String dsaddress;
+    private String address;
     @Size(max = 100)
     @Column(name = "DSEMAIL")
-    private String dsemail;
+    private String email;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DACREATE")
     @Temporal(TemporalType.DATE)
-    private Date dacreate;
+    private Date create;
     @Column(name = "DAUPDATE")
     @Temporal(TemporalType.DATE)
-    private Date daupdate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdperson")
+    private Date update;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "person")
     private List<Customer> customerList;
-    @OneToMany(mappedBy = "cdperson")
+    @OneToMany(mappedBy = "person")
     private List<Owner> ownerList;
     @JoinColumn(name = "CDUSER_CREATE", referencedColumnName = "CDUSER")
     @ManyToOne(optional = false)
-    private User cduserCreate;
+    private User userCreate;
     @JoinColumn(name = "CDUSER_UPDATE", referencedColumnName = "CDUSER")
     @ManyToOne
-    private User cduserUpdate;
+    private User userUpdate;
 
     public Person() {
     }
 
     public Person(Integer cdperson) {
-        this.cdperson = cdperson;
+        this.id = cdperson;
     }
 
     public Person(Integer cdperson, int cdpersonType, int cddocumentType, String cddocument, String dsnames, String dslastNames, String dscellPhone, Date dacreate) {
-        this.cdperson = cdperson;
-        this.cdpersonType = cdpersonType;
-        this.cddocumentType = cddocumentType;
-        this.cddocument = cddocument;
-        this.dsnames = dsnames;
-        this.dslastNames = dslastNames;
-        this.dscellPhone = dscellPhone;
-        this.dacreate = dacreate;
+        this.id = cdperson;
+        this.personType = cdpersonType;
+        this.documentType = cddocumentType;
+        this.document = cddocument;
+        this.names = dsnames;
+        this.lastNames = dslastNames;
+        this.cellPhone = dscellPhone;
+        this.create = dacreate;
     }
 
-    public Integer getCdperson() {
-        return cdperson;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCdperson(Integer cdperson) {
-        this.cdperson = cdperson;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public int getCdpersonType() {
-        return cdpersonType;
+    public int getPersonType() {
+        return personType;
     }
 
-    public void setCdpersonType(int cdpersonType) {
-        this.cdpersonType = cdpersonType;
+    public void setPersonType(int personType) {
+        this.personType = personType;
     }
 
-    public int getCddocumentType() {
-        return cddocumentType;
+    public int getDocumentType() {
+        return documentType;
     }
 
-    public void setCddocumentType(int cddocumentType) {
-        this.cddocumentType = cddocumentType;
+    public void setDocumentType(int documentType) {
+        this.documentType = documentType;
     }
 
-    public String getCddocument() {
-        return cddocument;
+    public String getDocument() {
+        return document;
     }
 
-    public void setCddocument(String cddocument) {
-        this.cddocument = cddocument;
+    public void setDocument(String document) {
+        this.document = document;
     }
 
-    public String getDsnames() {
-        return dsnames;
+    public String getNames() {
+        return names;
     }
 
-    public void setDsnames(String dsnames) {
-        this.dsnames = dsnames;
+    public void setNames(String names) {
+        this.names = names;
     }
 
-    public String getDslastNames() {
-        return dslastNames;
+    public String getLastNames() {
+        return lastNames;
     }
 
-    public void setDslastNames(String dslastNames) {
-        this.dslastNames = dslastNames;
+    public void setLastNames(String lastNames) {
+        this.lastNames = lastNames;
     }
 
-    public String getDsbusinessName() {
-        return dsbusinessName;
+    public String getBusinessName() {
+        return businessName;
     }
 
-    public void setDsbusinessName(String dsbusinessName) {
-        this.dsbusinessName = dsbusinessName;
+    public void setBusinessName(String businessName) {
+        this.businessName = businessName;
     }
 
-    public String getDstelephone() {
-        return dstelephone;
+    public String getTelephone() {
+        return telephone;
     }
 
-    public void setDstelephone(String dstelephone) {
-        this.dstelephone = dstelephone;
+    public void setTelephone(String telephone) {
+        this.telephone = telephone;
     }
 
-    public String getDscellPhone() {
-        return dscellPhone;
+    public String getCellPhone() {
+        return cellPhone;
     }
 
-    public void setDscellPhone(String dscellPhone) {
-        this.dscellPhone = dscellPhone;
+    public void setCellPhone(String cellPhone) {
+        this.cellPhone = cellPhone;
     }
 
-    public String getDsaddress() {
-        return dsaddress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setDsaddress(String dsaddress) {
-        this.dsaddress = dsaddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getDsemail() {
-        return dsemail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setDsemail(String dsemail) {
-        this.dsemail = dsemail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public Date getDacreate() {
-        return dacreate;
+    public Date getCreate() {
+        return create;
     }
 
-    public void setDacreate(Date dacreate) {
-        this.dacreate = dacreate;
+    public void setCreate(Date create) {
+        this.create = create;
     }
 
-    public Date getDaupdate() {
-        return daupdate;
+    public Date getUpdate() {
+        return update;
     }
 
-    public void setDaupdate(Date daupdate) {
-        this.daupdate = daupdate;
+    public void setUpdate(Date update) {
+        this.update = update;
     }
 
     @XmlTransient
@@ -244,26 +244,26 @@ public class Person implements Serializable {
         this.ownerList = ownerList;
     }
 
-    public User getCduserCreate() {
-        return cduserCreate;
+    public User getUserCreate() {
+        return userCreate;
     }
 
-    public void setCduserCreate(User cduserCreate) {
-        this.cduserCreate = cduserCreate;
+    public void setUserCreate(User userCreate) {
+        this.userCreate = userCreate;
     }
 
-    public User getCduserUpdate() {
-        return cduserUpdate;
+    public User getUserUpdate() {
+        return userUpdate;
     }
 
-    public void setCduserUpdate(User cduserUpdate) {
-        this.cduserUpdate = cduserUpdate;
+    public void setUserUpdate(User userUpdate) {
+        this.userUpdate = userUpdate;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (cdperson != null ? cdperson.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -274,7 +274,7 @@ public class Person implements Serializable {
             return false;
         }
         Person other = (Person) object;
-        if ((this.cdperson == null && other.cdperson != null) || (this.cdperson != null && !this.cdperson.equals(other.cdperson))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -282,7 +282,7 @@ public class Person implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.madeinhome.model.Person[ cdperson=" + cdperson + " ]";
+        return "co.com.madeinhome.model.Person[ cdperson=" + id + " ]";
     }
     
 }

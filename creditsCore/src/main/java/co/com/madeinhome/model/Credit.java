@@ -43,131 +43,131 @@ public class Credit implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "CDCREDIT")
-    private Integer cdcredit;
+    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DACREDIT")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dacredit;
+    private Date creditDate;
     @Basic(optional = false)
     @NotNull
     @Column(name = "NMQUOTES")
-    private int nmquotes;
+    private int quotes;
     @Basic(optional = false)
     @NotNull
     @Column(name = "NMTERM")
-    private int nmterm;
+    private int term;
     @Column(name = "DAFIRST_PAYMENT")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dafirstPayment;
+    private Date firstPaymentDate;
     @Basic(optional = false)
     @NotNull
     @Column(name = "VRQUOTE")
-    private long vrquote;
+    private long quote;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DACREATE")
     @Temporal(TemporalType.DATE)
-    private Date dacreate;
+    private Date create;
     @Column(name = "DAUPDATE")
     @Temporal(TemporalType.DATE)
-    private Date daupdate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdcredit")
+    private Date update;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "credit")
     private List<CreditDetail> creditDetailList;
     @JoinColumn(name = "CDCUSTOMER", referencedColumnName = "CDCUSTOMER")
     @ManyToOne(optional = false)
-    private Customer cdcustomer;
+    private Customer customer;
     @JoinColumn(name = "CDOWNER", referencedColumnName = "CDOWNER")
     @ManyToOne(optional = false)
-    private Owner cdowner;
+    private Owner owner;
     @JoinColumn(name = "CDPAYMENT_PERIOD", referencedColumnName = "CDPAYMENT_PERIOD")
     @ManyToOne(optional = false)
-    private PaymentPeriod cdpaymentPeriod;
+    private PaymentPeriod paymentPeriod;
     @JoinColumn(name = "CDUSER_CREATE", referencedColumnName = "CDUSER")
     @ManyToOne(optional = false)
-    private User cduserCreate;
+    private User userCreate;
     @JoinColumn(name = "CDUSER_UPDATE", referencedColumnName = "CDUSER")
     @ManyToOne
-    private User cduserUpdate;
+    private User userUpdate;
 
     public Credit() {
     }
 
     public Credit(Integer cdcredit) {
-        this.cdcredit = cdcredit;
+        this.id = cdcredit;
     }
 
     public Credit(Integer cdcredit, Date dacredit, int nmquotes, int nmterm, long vrquote, Date dacreate) {
-        this.cdcredit = cdcredit;
-        this.dacredit = dacredit;
-        this.nmquotes = nmquotes;
-        this.nmterm = nmterm;
-        this.vrquote = vrquote;
-        this.dacreate = dacreate;
+        this.id = cdcredit;
+        this.creditDate = dacredit;
+        this.quotes = nmquotes;
+        this.term = nmterm;
+        this.quote = vrquote;
+        this.create = dacreate;
     }
 
-    public Integer getCdcredit() {
-        return cdcredit;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCdcredit(Integer cdcredit) {
-        this.cdcredit = cdcredit;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public Date getDacredit() {
-        return dacredit;
+    public Date getCreditDate() {
+        return creditDate;
     }
 
-    public void setDacredit(Date dacredit) {
-        this.dacredit = dacredit;
+    public void setCreditDate(Date creditDate) {
+        this.creditDate = creditDate;
     }
 
-    public int getNmquotes() {
-        return nmquotes;
+    public int getQuotes() {
+        return quotes;
     }
 
-    public void setNmquotes(int nmquotes) {
-        this.nmquotes = nmquotes;
+    public void setQuotes(int quotes) {
+        this.quotes = quotes;
     }
 
-    public int getNmterm() {
-        return nmterm;
+    public int getTerm() {
+        return term;
     }
 
-    public void setNmterm(int nmterm) {
-        this.nmterm = nmterm;
+    public void setTerm(int term) {
+        this.term = term;
     }
 
-    public Date getDafirstPayment() {
-        return dafirstPayment;
+    public Date getFirstPaymentDate() {
+        return firstPaymentDate;
     }
 
-    public void setDafirstPayment(Date dafirstPayment) {
-        this.dafirstPayment = dafirstPayment;
+    public void setFirstPaymentDate(Date firstPaymentDate) {
+        this.firstPaymentDate = firstPaymentDate;
     }
 
-    public long getVrquote() {
-        return vrquote;
+    public long getQuote() {
+        return quote;
     }
 
-    public void setVrquote(long vrquote) {
-        this.vrquote = vrquote;
+    public void setQuote(long quote) {
+        this.quote = quote;
     }
 
-    public Date getDacreate() {
-        return dacreate;
+    public Date getCreate() {
+        return create;
     }
 
-    public void setDacreate(Date dacreate) {
-        this.dacreate = dacreate;
+    public void setCreate(Date create) {
+        this.create = create;
     }
 
-    public Date getDaupdate() {
-        return daupdate;
+    public Date getUpdate() {
+        return update;
     }
 
-    public void setDaupdate(Date daupdate) {
-        this.daupdate = daupdate;
+    public void setUpdate(Date update) {
+        this.update = update;
     }
 
     @XmlTransient
@@ -179,50 +179,50 @@ public class Credit implements Serializable {
         this.creditDetailList = creditDetailList;
     }
 
-    public Customer getCdcustomer() {
-        return cdcustomer;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCdcustomer(Customer cdcustomer) {
-        this.cdcustomer = cdcustomer;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public Owner getCdowner() {
-        return cdowner;
+    public Owner getOwner() {
+        return owner;
     }
 
-    public void setCdowner(Owner cdowner) {
-        this.cdowner = cdowner;
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
-    public PaymentPeriod getCdpaymentPeriod() {
-        return cdpaymentPeriod;
+    public PaymentPeriod getPaymentPeriod() {
+        return paymentPeriod;
     }
 
-    public void setCdpaymentPeriod(PaymentPeriod cdpaymentPeriod) {
-        this.cdpaymentPeriod = cdpaymentPeriod;
+    public void setPaymentPeriod(PaymentPeriod paymentPeriod) {
+        this.paymentPeriod = paymentPeriod;
     }
 
-    public User getCduserCreate() {
-        return cduserCreate;
+    public User getUserCreate() {
+        return userCreate;
     }
 
-    public void setCduserCreate(User cduserCreate) {
-        this.cduserCreate = cduserCreate;
+    public void setUserCreate(User userCreate) {
+        this.userCreate = userCreate;
     }
 
-    public User getCduserUpdate() {
-        return cduserUpdate;
+    public User getUserUpdate() {
+        return userUpdate;
     }
 
-    public void setCduserUpdate(User cduserUpdate) {
-        this.cduserUpdate = cduserUpdate;
+    public void setUserUpdate(User userUpdate) {
+        this.userUpdate = userUpdate;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (cdcredit != null ? cdcredit.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -233,7 +233,7 @@ public class Credit implements Serializable {
             return false;
         }
         Credit other = (Credit) object;
-        if ((this.cdcredit == null && other.cdcredit != null) || (this.cdcredit != null && !this.cdcredit.equals(other.cdcredit))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -241,7 +241,7 @@ public class Credit implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.madeinhome.model.Credit[ cdcredit=" + cdcredit + " ]";
+        return "co.com.madeinhome.model.Credit[ cdcredit=" + id + " ]";
     }
     
 }

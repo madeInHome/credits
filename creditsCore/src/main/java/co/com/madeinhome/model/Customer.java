@@ -43,146 +43,126 @@ public class Customer implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "CDCUSTOMER")
-    private Integer cdcustomer;
+    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "CDSTATE")
-    private int cdstate;
+    private int state;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DACREATE")
     @Temporal(TemporalType.DATE)
-    private Date dacreate;
+    private Date create;
     @Column(name = "DAUPDATE")
     @Temporal(TemporalType.DATE)
-    private Date daupdate;
+    private Date update;
     @JoinColumn(name = "CDOWNER", referencedColumnName = "CDOWNER")
     @ManyToOne(optional = false)
-    private Owner cdowner;
+    private Owner owner;
     @JoinColumn(name = "CDPAYMENT_PERIOD", referencedColumnName = "CDPAYMENT_PERIOD")
     @ManyToOne(optional = false)
-    private PaymentPeriod cdpaymentPeriod;
+    private PaymentPeriod paymentPeriod;
     @JoinColumn(name = "CDPERSON", referencedColumnName = "CDPERSON")
     @ManyToOne(optional = false)
-    private Person cdperson;
+    private Person person;
     @JoinColumn(name = "CDUSER_CREATE", referencedColumnName = "CDUSER")
     @ManyToOne(optional = false)
-    private User cduserCreate;
+    private User userCreate;
     @JoinColumn(name = "CDUSER_UPDATE", referencedColumnName = "CDUSER")
     @ManyToOne
-    private User cduserUpdate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdcustomer")
-    private List<Payment> paymentList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdcustomer")
-    private List<Credit> creditList;
+    private User userUpdate;
 
     public Customer() {
     }
 
     public Customer(Integer cdcustomer) {
-        this.cdcustomer = cdcustomer;
+        this.id = cdcustomer;
     }
 
     public Customer(Integer cdcustomer, int cdstate, Date dacreate) {
-        this.cdcustomer = cdcustomer;
-        this.cdstate = cdstate;
-        this.dacreate = dacreate;
+        this.id = cdcustomer;
+        this.state = cdstate;
+        this.create = dacreate;
     }
 
-    public Integer getCdcustomer() {
-        return cdcustomer;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCdcustomer(Integer cdcustomer) {
-        this.cdcustomer = cdcustomer;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public int getCdstate() {
-        return cdstate;
+    public int getState() {
+        return state;
     }
 
-    public void setCdstate(int cdstate) {
-        this.cdstate = cdstate;
+    public void setState(int state) {
+        this.state = state;
     }
 
-    public Date getDacreate() {
-        return dacreate;
+    public Date getCreate() {
+        return create;
     }
 
-    public void setDacreate(Date dacreate) {
-        this.dacreate = dacreate;
+    public void setCreate(Date create) {
+        this.create = create;
     }
 
-    public Date getDaupdate() {
-        return daupdate;
+    public Date getUpdate() {
+        return update;
     }
 
-    public void setDaupdate(Date daupdate) {
-        this.daupdate = daupdate;
+    public void setUpdate(Date update) {
+        this.update = update;
     }
 
-    public Owner getCdowner() {
-        return cdowner;
+    public Owner getOwner() {
+        return owner;
     }
 
-    public void setCdowner(Owner cdowner) {
-        this.cdowner = cdowner;
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
-    public PaymentPeriod getCdpaymentPeriod() {
-        return cdpaymentPeriod;
+    public PaymentPeriod getPaymentPeriod() {
+        return paymentPeriod;
     }
 
-    public void setCdpaymentPeriod(PaymentPeriod cdpaymentPeriod) {
-        this.cdpaymentPeriod = cdpaymentPeriod;
+    public void setPaymentPeriod(PaymentPeriod paymentPeriod) {
+        this.paymentPeriod = paymentPeriod;
     }
 
-    public Person getCdperson() {
-        return cdperson;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setCdperson(Person cdperson) {
-        this.cdperson = cdperson;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
-    public User getCduserCreate() {
-        return cduserCreate;
+    public User getUserCreate() {
+        return userCreate;
     }
 
-    public void setCduserCreate(User cduserCreate) {
-        this.cduserCreate = cduserCreate;
+    public void setUserCreate(User userCreate) {
+        this.userCreate = userCreate;
     }
 
-    public User getCduserUpdate() {
-        return cduserUpdate;
+    public User getUserUpdate() {
+        return userUpdate;
     }
 
-    public void setCduserUpdate(User cduserUpdate) {
-        this.cduserUpdate = cduserUpdate;
+    public void setUserUpdate(User userUpdate) {
+        this.userUpdate = userUpdate;
     }
 
-    @XmlTransient
-    public List<Payment> getPaymentList() {
-        return paymentList;
-    }
 
-    public void setPaymentList(List<Payment> paymentList) {
-        this.paymentList = paymentList;
-    }
-
-    @XmlTransient
-    public List<Credit> getCreditList() {
-        return creditList;
-    }
-
-    public void setCreditList(List<Credit> creditList) {
-        this.creditList = creditList;
-    }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (cdcustomer != null ? cdcustomer.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -193,7 +173,7 @@ public class Customer implements Serializable {
             return false;
         }
         Customer other = (Customer) object;
-        if ((this.cdcustomer == null && other.cdcustomer != null) || (this.cdcustomer != null && !this.cdcustomer.equals(other.cdcustomer))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -201,7 +181,7 @@ public class Customer implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.madeinhome.model.Customer[ cdcustomer=" + cdcustomer + " ]";
+        return "co.com.madeinhome.model.Customer[ cdcustomer=" + id + " ]";
     }
     
 }

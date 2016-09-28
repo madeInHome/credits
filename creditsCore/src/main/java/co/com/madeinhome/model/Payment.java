@@ -39,127 +39,127 @@ public class Payment implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "CDPAYMENT")
-    private Integer cdpayment;
+    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "VRAMOUNT")
-    private long vramount;
+    private long amount;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DAPAYMENT")
     @Temporal(TemporalType.TIMESTAMP)
-    private Date dapayment;
+    private Date paymentDate;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DACREATE")
     @Temporal(TemporalType.DATE)
-    private Date dacreate;
+    private Date create;
     @Column(name = "DAUPDATE")
     @Temporal(TemporalType.DATE)
-    private Date daupdate;
+    private Date update;
     @JoinColumn(name = "CDOWNER", referencedColumnName = "CDOWNER")
     @ManyToOne(optional = false)
-    private Owner cdowner;
+    private Owner owner;
     @JoinColumn(name = "CDUSER_CREATE", referencedColumnName = "CDUSER")
     @ManyToOne(optional = false)
-    private User cduserCreate;
+    private User userCreate;
     @JoinColumn(name = "CDUSER_UPDATE", referencedColumnName = "CDUSER")
     @ManyToOne
-    private User cduserUpdate;
+    private User userUpdate;
     @JoinColumn(name = "CDCUSTOMER", referencedColumnName = "CDCUSTOMER")
     @ManyToOne(optional = false)
-    private Customer cdcustomer;
+    private Customer customer;
 
     public Payment() {
     }
 
     public Payment(Integer cdpayment) {
-        this.cdpayment = cdpayment;
+        this.id = cdpayment;
     }
 
     public Payment(Integer cdpayment, long vramount, Date dapayment, Date dacreate) {
-        this.cdpayment = cdpayment;
-        this.vramount = vramount;
-        this.dapayment = dapayment;
-        this.dacreate = dacreate;
+        this.id = cdpayment;
+        this.amount = vramount;
+        this.paymentDate = dapayment;
+        this.create = dacreate;
     }
 
-    public Integer getCdpayment() {
-        return cdpayment;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCdpayment(Integer cdpayment) {
-        this.cdpayment = cdpayment;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public long getVramount() {
-        return vramount;
+    public long getAmount() {
+        return amount;
     }
 
-    public void setVramount(long vramount) {
-        this.vramount = vramount;
+    public void setAmount(long amount) {
+        this.amount = amount;
     }
 
-    public Date getDapayment() {
-        return dapayment;
+    public Date getPaymentDate() {
+        return paymentDate;
     }
 
-    public void setDapayment(Date dapayment) {
-        this.dapayment = dapayment;
+    public void setPaymentDate(Date paymentDate) {
+        this.paymentDate = paymentDate;
     }
 
-    public Date getDacreate() {
-        return dacreate;
+    public Date getCreate() {
+        return create;
     }
 
-    public void setDacreate(Date dacreate) {
-        this.dacreate = dacreate;
+    public void setCreate(Date create) {
+        this.create = create;
     }
 
-    public Date getDaupdate() {
-        return daupdate;
+    public Date getUpdate() {
+        return update;
     }
 
-    public void setDaupdate(Date daupdate) {
-        this.daupdate = daupdate;
+    public void setUpdate(Date update) {
+        this.update = update;
     }
 
-    public Owner getCdowner() {
-        return cdowner;
+    public Owner getOwner() {
+        return owner;
     }
 
-    public void setCdowner(Owner cdowner) {
-        this.cdowner = cdowner;
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
-    public User getCduserCreate() {
-        return cduserCreate;
+    public User getUserCreate() {
+        return userCreate;
     }
 
-    public void setCduserCreate(User cduserCreate) {
-        this.cduserCreate = cduserCreate;
+    public void setUserCreate(User userCreate) {
+        this.userCreate = userCreate;
     }
 
-    public User getCduserUpdate() {
-        return cduserUpdate;
+    public User getUserUpdate() {
+        return userUpdate;
     }
 
-    public void setCduserUpdate(User cduserUpdate) {
-        this.cduserUpdate = cduserUpdate;
+    public void setUserUpdate(User userUpdate) {
+        this.userUpdate = userUpdate;
     }
 
-    public Customer getCdcustomer() {
-        return cdcustomer;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCdcustomer(Customer cdcustomer) {
-        this.cdcustomer = cdcustomer;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (cdpayment != null ? cdpayment.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -170,7 +170,7 @@ public class Payment implements Serializable {
             return false;
         }
         Payment other = (Payment) object;
-        if ((this.cdpayment == null && other.cdpayment != null) || (this.cdpayment != null && !this.cdpayment.equals(other.cdpayment))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -178,7 +178,7 @@ public class Payment implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.madeinhome.model.Payment[ cdpayment=" + cdpayment + " ]";
+        return "co.com.madeinhome.model.Payment[ cdpayment=" + id + " ]";
     }
     
 }

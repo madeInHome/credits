@@ -44,99 +44,99 @@ public class ProductType implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "CDPRODUCT_TYPE")
-    private Integer cdproductType;
+    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 200)
     @Column(name = "DSPRODUCT_TYPE")
-    private String dsproductType;
+    private String productType;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DACREATE")
     @Temporal(TemporalType.DATE)
-    private Date dacreate;
+    private Date create;
     @Column(name = "DAUPDATE")
     @Temporal(TemporalType.DATE)
-    private Date daupdate;
+    private Date update;
     @JoinColumn(name = "CDOWNER", referencedColumnName = "CDOWNER")
     @ManyToOne(optional = false)
-    private Owner cdowner;
+    private Owner owner;
     @JoinColumn(name = "CDUSER_CREATE", referencedColumnName = "CDUSER")
     @ManyToOne(optional = false)
-    private User cduserCreate;
+    private User userCreate;
     @JoinColumn(name = "CDUSER_UPDATE", referencedColumnName = "CDUSER")
     @ManyToOne
-    private User cduserUpdate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdproductType")
+    private User userUpdate;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "productType")
     private List<Product> productList;
 
     public ProductType() {
     }
 
     public ProductType(Integer cdproductType) {
-        this.cdproductType = cdproductType;
+        this.id = cdproductType;
     }
 
     public ProductType(Integer cdproductType, String dsproductType, Date dacreate) {
-        this.cdproductType = cdproductType;
-        this.dsproductType = dsproductType;
-        this.dacreate = dacreate;
+        this.id = cdproductType;
+        this.productType = dsproductType;
+        this.create = dacreate;
     }
 
-    public Integer getCdproductType() {
-        return cdproductType;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCdproductType(Integer cdproductType) {
-        this.cdproductType = cdproductType;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getDsproductType() {
-        return dsproductType;
+    public String getProductType() {
+        return productType;
     }
 
-    public void setDsproductType(String dsproductType) {
-        this.dsproductType = dsproductType;
+    public void setProductType(String productType) {
+        this.productType = productType;
     }
 
-    public Date getDacreate() {
-        return dacreate;
+    public Date getCreate() {
+        return create;
     }
 
-    public void setDacreate(Date dacreate) {
-        this.dacreate = dacreate;
+    public void setCreate(Date create) {
+        this.create = create;
     }
 
-    public Date getDaupdate() {
-        return daupdate;
+    public Date getUpdate() {
+        return update;
     }
 
-    public void setDaupdate(Date daupdate) {
-        this.daupdate = daupdate;
+    public void setUpdate(Date update) {
+        this.update = update;
     }
 
-    public Owner getCdowner() {
-        return cdowner;
+    public Owner getOwner() {
+        return owner;
     }
 
-    public void setCdowner(Owner cdowner) {
-        this.cdowner = cdowner;
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
-    public User getCduserCreate() {
-        return cduserCreate;
+    public User getUserCreate() {
+        return userCreate;
     }
 
-    public void setCduserCreate(User cduserCreate) {
-        this.cduserCreate = cduserCreate;
+    public void setUserCreate(User userCreate) {
+        this.userCreate = userCreate;
     }
 
-    public User getCduserUpdate() {
-        return cduserUpdate;
+    public User getUserUpdate() {
+        return userUpdate;
     }
 
-    public void setCduserUpdate(User cduserUpdate) {
-        this.cduserUpdate = cduserUpdate;
+    public void setUserUpdate(User userUpdate) {
+        this.userUpdate = userUpdate;
     }
 
     @XmlTransient
@@ -151,7 +151,7 @@ public class ProductType implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (cdproductType != null ? cdproductType.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -162,7 +162,7 @@ public class ProductType implements Serializable {
             return false;
         }
         ProductType other = (ProductType) object;
-        if ((this.cdproductType == null && other.cdproductType != null) || (this.cdproductType != null && !this.cdproductType.equals(other.cdproductType))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -170,7 +170,7 @@ public class ProductType implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.madeinhome.model.ProductType[ cdproductType=" + cdproductType + " ]";
+        return "co.com.madeinhome.model.ProductType[ cdproductType=" + id + " ]";
     }
     
 }

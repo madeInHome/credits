@@ -40,148 +40,148 @@ public class CreditDetail implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "CDCREDIT_DETAIL")
-    private Integer cdcreditDetail;
+    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Column(name = "NMQUANTITY")
-    private int nmquantity;
+    private int quantity;
     @Basic(optional = false)
     @NotNull
     @Column(name = "VRSALE_PRICE")
-    private long vrsalePrice;
+    private long salePrice;
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "PORATE")
-    private BigDecimal porate;
+    private BigDecimal rate;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DACREATE")
     @Temporal(TemporalType.DATE)
-    private Date dacreate;
+    private Date create;
     @Column(name = "DAUPDATE")
     @Temporal(TemporalType.DATE)
-    private Date daupdate;
+    private Date update;
     @JoinColumn(name = "CDCREDIT", referencedColumnName = "CDCREDIT")
     @ManyToOne(optional = false)
-    private Credit cdcredit;
+    private Credit credit;
     @JoinColumn(name = "CDOWNER", referencedColumnName = "CDOWNER")
     @ManyToOne(optional = false)
-    private Owner cdowner;
+    private Owner owner;
     @JoinColumn(name = "CDPRODUCT", referencedColumnName = "CDPRODUCT")
     @ManyToOne(optional = false)
-    private Product cdproduct;
+    private Product product;
     @JoinColumn(name = "CDUSER_CREATE", referencedColumnName = "CDUSER")
     @ManyToOne(optional = false)
-    private User cduserCreate;
+    private User userCreate;
     @JoinColumn(name = "CDUSER_UPDATE", referencedColumnName = "CDUSER")
     @ManyToOne
-    private User cduserUpdate;
+    private User userUpdate;
 
     public CreditDetail() {
     }
 
     public CreditDetail(Integer cdcreditDetail) {
-        this.cdcreditDetail = cdcreditDetail;
+        this.id = cdcreditDetail;
     }
 
     public CreditDetail(Integer cdcreditDetail, int nmquantity, long vrsalePrice, Date dacreate) {
-        this.cdcreditDetail = cdcreditDetail;
-        this.nmquantity = nmquantity;
-        this.vrsalePrice = vrsalePrice;
-        this.dacreate = dacreate;
+        this.id = cdcreditDetail;
+        this.quantity = nmquantity;
+        this.salePrice = vrsalePrice;
+        this.create = dacreate;
     }
 
-    public Integer getCdcreditDetail() {
-        return cdcreditDetail;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCdcreditDetail(Integer cdcreditDetail) {
-        this.cdcreditDetail = cdcreditDetail;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public int getNmquantity() {
-        return nmquantity;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setNmquantity(int nmquantity) {
-        this.nmquantity = nmquantity;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public long getVrsalePrice() {
-        return vrsalePrice;
+    public long getSalePrice() {
+        return salePrice;
     }
 
-    public void setVrsalePrice(long vrsalePrice) {
-        this.vrsalePrice = vrsalePrice;
+    public void setSalePrice(long salePrice) {
+        this.salePrice = salePrice;
     }
 
-    public BigDecimal getPorate() {
-        return porate;
+    public BigDecimal getRate() {
+        return rate;
     }
 
-    public void setPorate(BigDecimal porate) {
-        this.porate = porate;
+    public void setRate(BigDecimal rate) {
+        this.rate = rate;
     }
 
-    public Date getDacreate() {
-        return dacreate;
+    public Date getCreate() {
+        return create;
     }
 
-    public void setDacreate(Date dacreate) {
-        this.dacreate = dacreate;
+    public void setCreate(Date create) {
+        this.create = create;
     }
 
-    public Date getDaupdate() {
-        return daupdate;
+    public Date getUpdate() {
+        return update;
     }
 
-    public void setDaupdate(Date daupdate) {
-        this.daupdate = daupdate;
+    public void setUpdate(Date update) {
+        this.update = update;
     }
 
-    public Credit getCdcredit() {
-        return cdcredit;
+    public Credit getCredit() {
+        return credit;
     }
 
-    public void setCdcredit(Credit cdcredit) {
-        this.cdcredit = cdcredit;
+    public void setCredit(Credit credit) {
+        this.credit = credit;
     }
 
-    public Owner getCdowner() {
-        return cdowner;
+    public Owner getOwner() {
+        return owner;
     }
 
-    public void setCdowner(Owner cdowner) {
-        this.cdowner = cdowner;
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
-    public Product getCdproduct() {
-        return cdproduct;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setCdproduct(Product cdproduct) {
-        this.cdproduct = cdproduct;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
-    public User getCduserCreate() {
-        return cduserCreate;
+    public User getUserCreate() {
+        return userCreate;
     }
 
-    public void setCduserCreate(User cduserCreate) {
-        this.cduserCreate = cduserCreate;
+    public void setUserCreate(User userCreate) {
+        this.userCreate = userCreate;
     }
 
-    public User getCduserUpdate() {
-        return cduserUpdate;
+    public User getUserUpdate() {
+        return userUpdate;
     }
 
-    public void setCduserUpdate(User cduserUpdate) {
-        this.cduserUpdate = cduserUpdate;
+    public void setUserUpdate(User userUpdate) {
+        this.userUpdate = userUpdate;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (cdcreditDetail != null ? cdcreditDetail.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -192,7 +192,7 @@ public class CreditDetail implements Serializable {
             return false;
         }
         CreditDetail other = (CreditDetail) object;
-        if ((this.cdcreditDetail == null && other.cdcreditDetail != null) || (this.cdcreditDetail != null && !this.cdcreditDetail.equals(other.cdcreditDetail))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -200,7 +200,7 @@ public class CreditDetail implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.madeinhome.model.CreditDetail[ cdcreditDetail=" + cdcreditDetail + " ]";
+        return "co.com.madeinhome.model.CreditDetail[ cdcreditDetail=" + id + " ]";
     }
     
 }

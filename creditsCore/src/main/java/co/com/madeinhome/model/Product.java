@@ -44,179 +44,179 @@ public class Product implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "CDPRODUCT")
-    private Integer cdproduct;
+    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 200)
     @Column(name = "DSPRODUCT")
-    private String dsproduct;
+    private String product;
     @Basic(optional = false)
     @NotNull
     @Column(name = "VRCOST")
-    private long vrcost;
+    private long cost;
     @Basic(optional = false)
     @NotNull
     @Column(name = "VRSALE_PRICE")
-    private long vrsalePrice;
+    private long salePrice;
     @Size(max = 20)
     @Column(name = "DSCOLOR")
-    private String dscolor;
+    private String color;
     @Size(max = 20)
     @Column(name = "DSSIZE")
-    private String dssize;
+    private String size;
     @Column(name = "NMSTOCK")
-    private Integer nmstock;
+    private Integer stock;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DACREATE")
     @Temporal(TemporalType.DATE)
-    private Date dacreate;
+    private Date create;
     @Column(name = "DAUPDATE")
     @Temporal(TemporalType.DATE)
-    private Date daupdate;
+    private Date update;
     @JoinColumn(name = "CDBRAND", referencedColumnName = "CDBRAND")
     @ManyToOne(optional = false)
-    private Brand cdbrand;
+    private Brand brand;
     @JoinColumn(name = "CDOWNER", referencedColumnName = "CDOWNER")
     @ManyToOne(optional = false)
-    private Owner cdowner;
+    private Owner owner;
     @JoinColumn(name = "CDUSER_CREATE", referencedColumnName = "CDUSER")
     @ManyToOne(optional = false)
-    private User cduserCreate;
+    private User userCreate;
     @JoinColumn(name = "CDUSER_UPDATE", referencedColumnName = "CDUSER")
     @ManyToOne
-    private User cduserUpdate;
+    private User userUpdate;
     @JoinColumn(name = "CDPRODUCT_TYPE", referencedColumnName = "CDPRODUCT_TYPE")
     @ManyToOne(optional = false)
-    private ProductType cdproductType;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdproduct")
+    private ProductType productType;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "product")
     private List<CreditDetail> creditDetailList;
 
     public Product() {
     }
 
     public Product(Integer cdproduct) {
-        this.cdproduct = cdproduct;
+        this.id = cdproduct;
     }
 
     public Product(Integer cdproduct, String dsproduct, long vrcost, long vrsalePrice, Date dacreate) {
-        this.cdproduct = cdproduct;
-        this.dsproduct = dsproduct;
-        this.vrcost = vrcost;
-        this.vrsalePrice = vrsalePrice;
-        this.dacreate = dacreate;
+        this.id = cdproduct;
+        this.product = dsproduct;
+        this.cost = vrcost;
+        this.salePrice = vrsalePrice;
+        this.create = dacreate;
     }
 
-    public Integer getCdproduct() {
-        return cdproduct;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCdproduct(Integer cdproduct) {
-        this.cdproduct = cdproduct;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getDsproduct() {
-        return dsproduct;
+    public String getProduct() {
+        return product;
     }
 
-    public void setDsproduct(String dsproduct) {
-        this.dsproduct = dsproduct;
+    public void setProduct(String product) {
+        this.product = product;
     }
 
-    public long getVrcost() {
-        return vrcost;
+    public long getCost() {
+        return cost;
     }
 
-    public void setVrcost(long vrcost) {
-        this.vrcost = vrcost;
+    public void setCost(long cost) {
+        this.cost = cost;
     }
 
-    public long getVrsalePrice() {
-        return vrsalePrice;
+    public long getSalePrice() {
+        return salePrice;
     }
 
-    public void setVrsalePrice(long vrsalePrice) {
-        this.vrsalePrice = vrsalePrice;
+    public void setSalePrice(long salePrice) {
+        this.salePrice = salePrice;
     }
 
-    public String getDscolor() {
-        return dscolor;
+    public String getColor() {
+        return color;
     }
 
-    public void setDscolor(String dscolor) {
-        this.dscolor = dscolor;
+    public void setColor(String color) {
+        this.color = color;
     }
 
-    public String getDssize() {
-        return dssize;
+    public String getSize() {
+        return size;
     }
 
-    public void setDssize(String dssize) {
-        this.dssize = dssize;
+    public void setSize(String size) {
+        this.size = size;
     }
 
-    public Integer getNmstock() {
-        return nmstock;
+    public Integer getStock() {
+        return stock;
     }
 
-    public void setNmstock(Integer nmstock) {
-        this.nmstock = nmstock;
+    public void setStock(Integer stock) {
+        this.stock = stock;
     }
 
-    public Date getDacreate() {
-        return dacreate;
+    public Date getCreate() {
+        return create;
     }
 
-    public void setDacreate(Date dacreate) {
-        this.dacreate = dacreate;
+    public void setCreate(Date create) {
+        this.create = create;
     }
 
-    public Date getDaupdate() {
-        return daupdate;
+    public Date getUpdate() {
+        return update;
     }
 
-    public void setDaupdate(Date daupdate) {
-        this.daupdate = daupdate;
+    public void setUpdate(Date update) {
+        this.update = update;
     }
 
-    public Brand getCdbrand() {
-        return cdbrand;
+    public Brand getBrand() {
+        return brand;
     }
 
-    public void setCdbrand(Brand cdbrand) {
-        this.cdbrand = cdbrand;
+    public void setBrand(Brand brand) {
+        this.brand = brand;
     }
 
-    public Owner getCdowner() {
-        return cdowner;
+    public Owner getOwner() {
+        return owner;
     }
 
-    public void setCdowner(Owner cdowner) {
-        this.cdowner = cdowner;
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
-    public User getCduserCreate() {
-        return cduserCreate;
+    public User getUserCreate() {
+        return userCreate;
     }
 
-    public void setCduserCreate(User cduserCreate) {
-        this.cduserCreate = cduserCreate;
+    public void setUserCreate(User userCreate) {
+        this.userCreate = userCreate;
     }
 
-    public User getCduserUpdate() {
-        return cduserUpdate;
+    public User getUserUpdate() {
+        return userUpdate;
     }
 
-    public void setCduserUpdate(User cduserUpdate) {
-        this.cduserUpdate = cduserUpdate;
+    public void setUserUpdate(User userUpdate) {
+        this.userUpdate = userUpdate;
     }
 
-    public ProductType getCdproductType() {
-        return cdproductType;
+    public ProductType getProductType() {
+        return productType;
     }
 
-    public void setCdproductType(ProductType cdproductType) {
-        this.cdproductType = cdproductType;
+    public void setProductType(ProductType productType) {
+        this.productType = productType;
     }
 
     @XmlTransient
@@ -231,7 +231,7 @@ public class Product implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (cdproduct != null ? cdproduct.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -242,7 +242,7 @@ public class Product implements Serializable {
             return false;
         }
         Product other = (Product) object;
-        if ((this.cdproduct == null && other.cdproduct != null) || (this.cdproduct != null && !this.cdproduct.equals(other.cdproduct))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -250,7 +250,7 @@ public class Product implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.madeinhome.model.Product[ cdproduct=" + cdproduct + " ]";
+        return "co.com.madeinhome.model.Product[ cdproduct=" + id + " ]";
     }
     
 }

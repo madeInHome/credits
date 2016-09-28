@@ -44,90 +44,90 @@ public class PaymentPeriod implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "CDPAYMENT_PERIOD")
-    private Integer cdpaymentPeriod;
+    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "DSPERIOD")
-    private String dsperiod;
+    private String period;
     @Basic(optional = false)
     @NotNull
     @Column(name = "NMDAYS")
-    private int nmdays;
+    private int days;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DACREATE")
     @Temporal(TemporalType.DATE)
-    private Date dacreate;
+    private Date create;
     @Column(name = "DAUPDATE")
     @Temporal(TemporalType.DATE)
-    private Date daupdate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdpaymentPeriod")
+    private Date update;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "paymentPeriod")
     private List<Customer> customerList;
     @JoinColumn(name = "CDOWNER", referencedColumnName = "CDOWNER")
     @ManyToOne(optional = false)
-    private Owner cdowner;
+    private Owner owner;
     @JoinColumn(name = "CDUSER_CREATE", referencedColumnName = "CDUSER")
     @ManyToOne(optional = false)
-    private User cduserCreate;
+    private User userCreate;
     @JoinColumn(name = "CDUSER_UPDATE", referencedColumnName = "CDUSER")
     @ManyToOne
     private User cduserUpdate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdpaymentPeriod")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "paymentPeriod")
     private List<Credit> creditList;
 
     public PaymentPeriod() {
     }
 
     public PaymentPeriod(Integer cdpaymentPeriod) {
-        this.cdpaymentPeriod = cdpaymentPeriod;
+        this.id = cdpaymentPeriod;
     }
 
     public PaymentPeriod(Integer cdpaymentPeriod, String dsperiod, int nmdays, Date dacreate) {
-        this.cdpaymentPeriod = cdpaymentPeriod;
-        this.dsperiod = dsperiod;
-        this.nmdays = nmdays;
-        this.dacreate = dacreate;
+        this.id = cdpaymentPeriod;
+        this.period = dsperiod;
+        this.days = nmdays;
+        this.create = dacreate;
     }
 
-    public Integer getCdpaymentPeriod() {
-        return cdpaymentPeriod;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCdpaymentPeriod(Integer cdpaymentPeriod) {
-        this.cdpaymentPeriod = cdpaymentPeriod;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getDsperiod() {
-        return dsperiod;
+    public String getPeriod() {
+        return period;
     }
 
-    public void setDsperiod(String dsperiod) {
-        this.dsperiod = dsperiod;
+    public void setPeriod(String period) {
+        this.period = period;
     }
 
-    public int getNmdays() {
-        return nmdays;
+    public int getDays() {
+        return days;
     }
 
-    public void setNmdays(int nmdays) {
-        this.nmdays = nmdays;
+    public void setDays(int days) {
+        this.days = days;
     }
 
-    public Date getDacreate() {
-        return dacreate;
+    public Date getCreate() {
+        return create;
     }
 
-    public void setDacreate(Date dacreate) {
-        this.dacreate = dacreate;
+    public void setCreate(Date create) {
+        this.create = create;
     }
 
-    public Date getDaupdate() {
-        return daupdate;
+    public Date getUpdate() {
+        return update;
     }
 
-    public void setDaupdate(Date daupdate) {
-        this.daupdate = daupdate;
+    public void setUpdate(Date update) {
+        this.update = update;
     }
 
     @XmlTransient
@@ -139,20 +139,20 @@ public class PaymentPeriod implements Serializable {
         this.customerList = customerList;
     }
 
-    public Owner getCdowner() {
-        return cdowner;
+    public Owner getOwner() {
+        return owner;
     }
 
-    public void setCdowner(Owner cdowner) {
-        this.cdowner = cdowner;
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 
-    public User getCduserCreate() {
-        return cduserCreate;
+    public User getUserCreate() {
+        return userCreate;
     }
 
-    public void setCduserCreate(User cduserCreate) {
-        this.cduserCreate = cduserCreate;
+    public void setUserCreate(User userCreate) {
+        this.userCreate = userCreate;
     }
 
     public User getCduserUpdate() {
@@ -175,7 +175,7 @@ public class PaymentPeriod implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (cdpaymentPeriod != null ? cdpaymentPeriod.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -186,7 +186,7 @@ public class PaymentPeriod implements Serializable {
             return false;
         }
         PaymentPeriod other = (PaymentPeriod) object;
-        if ((this.cdpaymentPeriod == null && other.cdpaymentPeriod != null) || (this.cdpaymentPeriod != null && !this.cdpaymentPeriod.equals(other.cdpaymentPeriod))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -194,7 +194,7 @@ public class PaymentPeriod implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.madeinhome.model.PaymentPeriod[ cdpaymentPeriod=" + cdpaymentPeriod + " ]";
+        return "co.com.madeinhome.model.PaymentPeriod[ cdpaymentPeriod=" + id + " ]";
     }
     
 }

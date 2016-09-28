@@ -44,89 +44,89 @@ public class Owner implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "CDOWNER")
-    private Integer cdowner;
+    private Integer id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 1)
     @Column(name = "YNCHECK_CUSTOMER")
-    private String yncheckCustomer;
+    private String checkCustomer;
     @Basic(optional = false)
     @NotNull
     @Column(name = "DACREATE")
     @Temporal(TemporalType.DATE)
-    private Date dacreate;
+    private Date create;
     @Column(name = "DAUPDATE")
     @Temporal(TemporalType.DATE)
-    private Date daupdate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdowner")
+    private Date update;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private List<ProductType> productTypeList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdowner")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private List<Customer> customerList;
     @JoinColumn(name = "CDPERSON", referencedColumnName = "CDPERSON")
     @ManyToOne
-    private Person cdperson;
+    private Person person;
     @JoinColumn(name = "CDUSER_CREATE", referencedColumnName = "CDUSER")
     @ManyToOne(optional = false)
-    private User cduserCreate;
+    private User userCreate;
     @JoinColumn(name = "CDUSER_UPDATE", referencedColumnName = "CDUSER")
     @ManyToOne
-    private User cduserUpdate;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdowner")
+    private User userUpdate;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private List<Product> productList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdowner")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private List<PaymentPeriod> paymentPeriodList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdowner")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private List<Payment> paymentList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdowner")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private List<Brand> brandList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdowner")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private List<CreditDetail> creditDetailList;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "cdowner")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private List<Credit> creditList;
 
     public Owner() {
     }
 
     public Owner(Integer cdowner) {
-        this.cdowner = cdowner;
+        this.id = cdowner;
     }
 
     public Owner(Integer cdowner, String yncheckCustomer, Date dacreate) {
-        this.cdowner = cdowner;
-        this.yncheckCustomer = yncheckCustomer;
-        this.dacreate = dacreate;
+        this.id = cdowner;
+        this.checkCustomer = yncheckCustomer;
+        this.create = dacreate;
     }
 
-    public Integer getCdowner() {
-        return cdowner;
+    public Integer getId() {
+        return id;
     }
 
-    public void setCdowner(Integer cdowner) {
-        this.cdowner = cdowner;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getYncheckCustomer() {
-        return yncheckCustomer;
+    public String getCheckCustomer() {
+        return checkCustomer;
     }
 
-    public void setYncheckCustomer(String yncheckCustomer) {
-        this.yncheckCustomer = yncheckCustomer;
+    public void setCheckCustomer(String checkCustomer) {
+        this.checkCustomer = checkCustomer;
     }
 
-    public Date getDacreate() {
-        return dacreate;
+    public Date getCreate() {
+        return create;
     }
 
-    public void setDacreate(Date dacreate) {
-        this.dacreate = dacreate;
+    public void setCreate(Date create) {
+        this.create = create;
     }
 
-    public Date getDaupdate() {
-        return daupdate;
+    public Date getUpdate() {
+        return update;
     }
 
-    public void setDaupdate(Date daupdate) {
-        this.daupdate = daupdate;
+    public void setUpdate(Date update) {
+        this.update = update;
     }
 
     @XmlTransient
@@ -147,28 +147,28 @@ public class Owner implements Serializable {
         this.customerList = customerList;
     }
 
-    public Person getCdperson() {
-        return cdperson;
+    public Person getPerson() {
+        return person;
     }
 
-    public void setCdperson(Person cdperson) {
-        this.cdperson = cdperson;
+    public void setPerson(Person person) {
+        this.person = person;
     }
 
-    public User getCduserCreate() {
-        return cduserCreate;
+    public User getUserCreate() {
+        return userCreate;
     }
 
-    public void setCduserCreate(User cduserCreate) {
-        this.cduserCreate = cduserCreate;
+    public void setUserCreate(User userCreate) {
+        this.userCreate = userCreate;
     }
 
-    public User getCduserUpdate() {
-        return cduserUpdate;
+    public User getUserUpdate() {
+        return userUpdate;
     }
 
-    public void setCduserUpdate(User cduserUpdate) {
-        this.cduserUpdate = cduserUpdate;
+    public void setUserUpdate(User userUpdate) {
+        this.userUpdate = userUpdate;
     }
 
     @XmlTransient
@@ -228,7 +228,7 @@ public class Owner implements Serializable {
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (cdowner != null ? cdowner.hashCode() : 0);
+        hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
@@ -239,7 +239,7 @@ public class Owner implements Serializable {
             return false;
         }
         Owner other = (Owner) object;
-        if ((this.cdowner == null && other.cdowner != null) || (this.cdowner != null && !this.cdowner.equals(other.cdowner))) {
+        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
         return true;
@@ -247,7 +247,7 @@ public class Owner implements Serializable {
 
     @Override
     public String toString() {
-        return "co.com.madeinhome.model.Owner[ cdowner=" + cdowner + " ]";
+        return "co.com.madeinhome.model.Owner[ cdowner=" + id + " ]";
     }
     
 }
